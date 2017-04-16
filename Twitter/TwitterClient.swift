@@ -17,8 +17,8 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     static let sharedInstance = TwitterClient(
         baseURL: URL(string: "https://api.twitter.com/")!,
-        consumerKey: "consumer_key",
-        consumerSecret: "consumer_secret")
+        consumerKey: "consumerKey",
+        consumerSecret: "consumerSecret")!
     
     var loginSuccess: (() -> ())?
     var loginFailure: ((Error) -> ())?
