@@ -84,4 +84,38 @@ class TwitterClient: BDBOAuth1SessionManager {
             failure(error)
         })
     }
+    
+    func updateStatus(message: String, idToReply: Int64?, success: @escaping ()->(), failure: @escaping (Error)->()) {
+        var url = "1.1/statuses/update.json?status=\(message)"
+        if let idToReply = idToReply {
+            url = url + "&in_reply_to_status_id=\(idToReply)"
+        }
+        post(url, parameters: nil, success: { (task: URLSessionDataTask, response: Any) in
+            print("updateStatus; status=ok")
+            success()
+        }) { (task: URLSessionDataTask?, error: Error) in
+            print("updateStatus; status=failed; error=\(error.localizedDescription)")
+            failure(error)
+        }
+    }
+    
+    func retweet(id: Int64, success: @escaping ()->(), failure: @escaping (Error)->()) {
+        post("1.1/statuses/retweet/\(id).json", parameters: nil, success: { (task: URLSessionDataTask, response: Any) in
+            print("retweet; status=ok")
+            success()
+        }) { (task: URLSessionDataTask?, error: Error) in
+            print("retweet; status=failed; error=\(error.localizedDescription)")
+            failure(error)
+        }
+    }
+    
+    func createFavorite(id: Int64, success: @escaping ()->(), failure: @escaping (Error)->()) {
+        post("1.1/favorites/create.json?id=\(id)", parameters: nil, success: { (task: URLSessionDataTask, response: Any) in
+            print("createFavorite; status=ok")
+            success()
+        }) { (task: URLSessionDataTask?, error: Error) in
+            print("createFavorite; status=failed; error=\(error.localizedDescription)")
+            failure(error)
+        }
+    }
 }
