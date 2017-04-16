@@ -49,12 +49,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         TwitterClient.sharedInstance?.fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken) in
             print("access token retrieved")
+        
+            TwitterClient.sharedInstance?.get("1.1/account/verify_credentials.json", parameters: nil, success: { (task: URLSessionDataTask, response: Any) in
+                let data = response as! NSDictionary
+                let user = User(dictionary: data)
+                print(user.screenname!)
+            }, failure: { (task: URLSessionDataTask?, error: Error) in
+                print("error: \(error.localizedDescription)")
+            })
             
-            TwitterClient.sharedInstance?.get("1.1/statuses/home_timeline.json", parameters: nil, success: { (task, response) in
+            TwitterClient.sharedInstance?.get("1.1/statuses/home_timeline.json", parameters: nil, success: { (task: URLSessionDataTask, response: Any) in
                 let data = response as! [NSDictionary]
-                print(data)
-            }, failure: { (task, error) in
-                print("error")
+                let tweets = Tweet.tweetsWithArray(dictionaries: data)
+                print("total tweets: \(tweets.count)")
+            }, failure: { (task: URLSessionDataTask?, error: Error) in
+                print("error: \(error.localizedDescription)")
             })
             
         }, failure: { (error) in
