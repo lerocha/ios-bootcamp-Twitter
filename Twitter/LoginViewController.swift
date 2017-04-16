@@ -23,13 +23,13 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onLoginButton(_ sender: Any) {
+        let client = TwitterClient.sharedInstance
         
-        TwitterClient.sharedInstance?.getAuthorizeUrl(success: { (url) in
-            if let url = url {
-                UIApplication.shared.open(url)
-            }
+        client.login(success: { () in
+            print("login=succeeded")
+            
         }, failure: { (error) in
-            print("error\(error!.localizedDescription)")
+            print("login=failed")
         })
         
     }
