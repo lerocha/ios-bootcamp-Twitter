@@ -14,7 +14,9 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
-            screennameLabel.text = tweet.text
+            if let screenname = tweet.user?.screenname {
+                screennameLabel.text = "@" + screenname
+            }
         }
     }
     

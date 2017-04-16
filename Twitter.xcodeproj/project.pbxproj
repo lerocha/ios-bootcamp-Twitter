@@ -97,9 +97,9 @@
 		27B9DD561EA2B371009C3FDB /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
-				605744B81EA36413009E4D11 /* Views */,
-				605744AF1EA33A0E009E4D11 /* Models */,
 				2716AC601EA2E475001F7625 /* Clients */,
+				605744AF1EA33A0E009E4D11 /* Models */,
+				605744B81EA36413009E4D11 /* Views */,
 				2716AC5F1EA2BB2A001F7625 /* Controllers */,
 				27B9DD571EA2B371009C3FDB /* AppDelegate.swift */,
 				27B9DD5B1EA2B371009C3FDB /* Main.storyboard */,
