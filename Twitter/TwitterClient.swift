@@ -17,8 +17,8 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     static let sharedInstance = TwitterClient(
         baseURL: URL(string: "https://api.twitter.com/")!,
-        consumerKey: "UxsBQS88KHmXJbfGutIwPeKyy",
-        consumerSecret: "sZ7GXw5pQK0L3TRHZIa1t28QS85HquJJhsxumZBmSDLxkNZslA")
+        consumerKey: "consumer_key",
+        consumerSecret: "consumer_secret")
     
     func getAuthorizeUrl(success: @escaping (URL?) -> Void, failure: @escaping (Error?) -> Void) {
         deauthorize()
