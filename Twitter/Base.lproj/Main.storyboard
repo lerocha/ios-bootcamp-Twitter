@@ -66,48 +66,49 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="John Wu retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJe-tU-5dv">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Wu retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJe-tU-5dv">
                                                     <rect key="frame" x="64" y="10" width="102" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.53333333333333333" green="0.56862745098039214" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@MikeRooney" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hc2-HH-TVf">
-                                                    <rect key="frame" x="167" y="27" width="80" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@MikeRooney" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hc2-HH-TVf">
+                                                    <rect key="frame" x="167" y="26" width="80" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.53333333333333333" green="0.56862745098039214" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AXE-xc-Te2">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AXE-xc-Te2">
                                                     <rect key="frame" x="8" y="26" width="48" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="p7X-3G-dym"/>
+                                                        <constraint firstAttribute="height" constant="48" id="t5t-Rc-Dhp"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Michael Rooney" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmk-aY-ifb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michael Rooney" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmk-aY-ifb">
                                                     <rect key="frame" x="64" y="26" width="95" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Did you know you can tell if someone is" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-hC-1O1">
-                                                    <rect key="frame" x="64" y="50" width="223" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know you can tell if someone is" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSM-hC-1O1">
+                                                    <rect key="frame" x="64" y="49" width="223" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ha-og-Msc">
-                                                    <rect key="frame" x="291" y="24" width="21" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ha-og-Msc">
+                                                    <rect key="frame" x="352" y="26.5" width="15" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.53333333333333333" green="0.56862745098039214" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retweet-action" translatesAutoresizingMaskIntoConstraints="NO" id="CL6-T6-dvZ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet-action" translatesAutoresizingMaskIntoConstraints="NO" id="CL6-T6-dvZ">
                                                     <rect key="frame" x="40" y="8" width="16" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="Ao5-MK-0QU"/>
+                                                        <constraint firstAttribute="width" constant="16" id="Ulk-zj-v7N"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reply-action_0" translatesAutoresizingMaskIntoConstraints="NO" id="hq8-TG-eTy">
                                                     <rect key="frame" x="64" y="86" width="20" height="20"/>
@@ -143,6 +144,23 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tSM-hC-1O1" firstAttribute="leading" secondItem="AXE-xc-Te2" secondAttribute="trailing" constant="8" id="1xT-Id-fdt"/>
+                                                <constraint firstItem="0ha-og-Msc" firstAttribute="centerY" secondItem="kmk-aY-ifb" secondAttribute="centerY" id="7xh-Rt-HZg"/>
+                                                <constraint firstItem="AXE-xc-Te2" firstAttribute="top" secondItem="CL6-T6-dvZ" secondAttribute="bottom" constant="2" id="GGM-K2-Fas"/>
+                                                <constraint firstItem="eJe-tU-5dv" firstAttribute="leading" secondItem="CL6-T6-dvZ" secondAttribute="trailing" constant="8" id="LgW-3A-XQm"/>
+                                                <constraint firstItem="hc2-HH-TVf" firstAttribute="leading" secondItem="kmk-aY-ifb" secondAttribute="trailing" constant="8" id="PRL-gT-TBk"/>
+                                                <constraint firstItem="CL6-T6-dvZ" firstAttribute="leading" secondItem="kjb-wP-ufo" secondAttribute="leading" constant="40" id="Sxv-AN-0lS"/>
+                                                <constraint firstItem="eJe-tU-5dv" firstAttribute="top" secondItem="kjb-wP-ufo" secondAttribute="top" constant="10" id="X4I-Wt-b9D"/>
+                                                <constraint firstItem="hc2-HH-TVf" firstAttribute="centerY" secondItem="kmk-aY-ifb" secondAttribute="centerY" id="coU-IQ-Rua"/>
+                                                <constraint firstItem="tSM-hC-1O1" firstAttribute="top" secondItem="hc2-HH-TVf" secondAttribute="bottom" constant="8" id="fsa-cq-uIV"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AXE-xc-Te2" secondAttribute="bottom" constant="42" id="hPL-gJ-n6L"/>
+                                                <constraint firstItem="AXE-xc-Te2" firstAttribute="leading" secondItem="kjb-wP-ufo" secondAttribute="leading" constant="8" id="ns0-Ra-k7M"/>
+                                                <constraint firstItem="kmk-aY-ifb" firstAttribute="top" secondItem="AXE-xc-Te2" secondAttribute="top" id="rlr-IW-bjP"/>
+                                                <constraint firstAttribute="trailing" secondItem="0ha-og-Msc" secondAttribute="trailing" constant="8" id="tbg-81-PXR"/>
+                                                <constraint firstItem="CL6-T6-dvZ" firstAttribute="top" secondItem="kjb-wP-ufo" secondAttribute="top" constant="8" id="wIC-3u-aCI"/>
+                                                <constraint firstItem="kmk-aY-ifb" firstAttribute="leading" secondItem="AXE-xc-Te2" secondAttribute="trailing" constant="8" id="xax-Al-0I9"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="favoritesCountLabel" destination="Ozw-db-mmz" id="F87-x7-klO"/>
