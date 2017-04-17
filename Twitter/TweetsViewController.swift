@@ -23,15 +23,25 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         
+        // initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(TweetsViewController.refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        refreshControlAction(refreshControl)
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
         TwitterClient.sharedInstance.homeTimeLine(success: { (tweets: [Tweet]) in
             self.tweets = tweets
             self.tableView.reloadData()
             MBProgressHUD.hide(for: self.view, animated: true)
+            refreshControl.endRefreshing()
         }) { (error: Error) in
             print(error.localizedDescription)
             MBProgressHUD.hide(for: self.view, animated: true)
+            refreshControl.endRefreshing()
         }
     }
 
