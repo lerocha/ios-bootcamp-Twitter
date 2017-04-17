@@ -194,6 +194,7 @@
                                             <outlet property="screennameLabel" destination="hc2-HH-TVf" id="48R-n6-534"/>
                                             <outlet property="textLabel" destination="tSM-hC-1O1" id="e3k-Br-IjH"/>
                                             <outlet property="timestampLabel" destination="0ha-og-Msc" id="fyc-2C-LVt"/>
+                                            <segue destination="DRF-7n-EPS" kind="presentation" id="p36-j1-1pn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -294,6 +295,31 @@
             </objects>
             <point key="canvasLocation" x="3112.8000000000002" y="36.431784107946029"/>
         </scene>
+        <!--Tweet-->
+        <scene sceneID="ibn-YS-CNB">
+            <objects>
+                <viewController id="nyG-TZ-gQI" customClass="TweetDetailsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gxG-Bl-mSe"/>
+                        <viewControllerLayoutGuide type="bottom" id="toN-rf-47k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JHI-rr-6us">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tweet" id="s10-uR-OWd">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="tzh-qM-k0t">
+                            <connections>
+                                <action selector="onCancelButton:" destination="nyG-TZ-gQI" id="oPE-ms-4RC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cxf-fe-fh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3113" y="710"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZR6-iy-kkK">
             <objects>
@@ -329,6 +355,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVh-uS-b6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2347.5" y="38.028169014084504"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nnb-vA-vse">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DRF-7n-EPS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WbI-dl-H2m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nyG-TZ-gQI" kind="relationship" relationship="rootViewController" id="vvb-FB-Gag"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r69-tt-FwP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2346" y="710"/>
         </scene>
     </scenes>
     <resources>
