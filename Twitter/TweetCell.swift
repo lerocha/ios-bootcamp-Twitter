@@ -37,7 +37,7 @@ class TweetCell: UITableViewCell {
             if let timestamp = tweet.timestamp {
                 timestampLabel.text = timestamp.timeIntervalSince(Date()).description
             }
-            messageLabel.text = tweet.description
+            messageLabel.text = tweet.text
             replyCountLabel.text = String("\(tweet.retweetCount)")
             retweetCountLabel.text = String("\(tweet.retweetCount)")
             favoritesCountLabel.text = String("\(tweet.favoritesCount)")
