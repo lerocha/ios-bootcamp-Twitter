@@ -8,12 +8,27 @@
 
 import UIKit
 
-class TweetViewController: UIViewController {
+class NewTweetViewController: UIViewController {
 
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var screennameLabel: UILabel!
+    @IBOutlet weak var messageTextView: UITextView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        nameLabel.text = User.currentUser?.name
+        if let screenname = User.currentUser?.screenname {
+            screennameLabel.text = "@\(screenname)"
+        }
+        if let imageUrl = User.currentUser?.profileUrl {
+            profileImageView.setImageWith(imageUrl)
+        }
+        messageTextView.text = ""
+        messageTextView.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +41,14 @@ class TweetViewController: UIViewController {
     }
 
     @IBAction func onReplyButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        
+        TwitterClient.sharedInstance.updateStatus(message: messageTextView.text, idToReply: nil, success: {
+            self.messageTextView.text = ""
+            self.dismiss(animated: true, completion: nil)
+        }) { (error: Error) in
+            print(error.localizedDescription)
+        }
+        
     }
     
     /*

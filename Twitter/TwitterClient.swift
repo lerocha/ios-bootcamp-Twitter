@@ -86,7 +86,8 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     func updateStatus(message: String, idToReply: Int64?, success: @escaping ()->(), failure: @escaping (Error)->()) {
-        var url = "1.1/statuses/update.json?status=\(message)"
+        let encoded = message.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        var url = "1.1/statuses/update.json?status=\(encoded!)"
         if let idToReply = idToReply {
             url = url + "&in_reply_to_status_id=\(idToReply)"
         }
