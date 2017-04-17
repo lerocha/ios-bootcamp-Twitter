@@ -40,7 +40,7 @@ class TweetCell: UITableViewCell {
                     timestampLabel.text = String("\(hours)h")
                 } else {
                     let minutes = Calendar.current.dateComponents([.minute], from: timestamp, to: Date()).minute ?? 0
-                    timestampLabel.text = String("\(minutes)min")
+                    timestampLabel.text = String("\(minutes)m")
                 }
             }
             messageLabel.text = tweet.text
@@ -53,6 +53,18 @@ class TweetCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        profileImageView.layer.cornerRadius = 3
+        profileImageView.clipsToBounds = true
+        
+        // sync up with actual size of the label
+        nameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // sync up with actual size of the label
+        nameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
