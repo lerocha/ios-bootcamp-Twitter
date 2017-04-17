@@ -10,13 +10,37 @@ import UIKit
 
 class TweetCell: UITableViewCell {
 
+    @IBOutlet weak var retweetedImageView: UIImageView!
+    @IBOutlet weak var retweetedLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var screennameLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var replyCountLabel: UILabel!
+    @IBOutlet weak var retweetCountLabel: UILabel!
+    @IBOutlet weak var favoritesCountLabel: UILabel!
     
     var tweet: Tweet! {
         didSet {
+            retweetedLabel.isHidden = !tweet.retweeted
+            retweetedImageView.isHidden = !tweet.retweeted
+            if let imageUrl = tweet.user?.profileUrl {
+                profileImageView.setImageWith(imageUrl)
+            }
+            if let name = tweet.user?.name {
+                nameLabel.text = name
+            }
             if let screenname = tweet.user?.screenname {
                 screennameLabel.text = "@" + screenname
             }
+            if let timestamp = tweet.timestamp {
+                timestampLabel.text = timestamp.timeIntervalSince(Date()).description
+            }
+            messageLabel.text = tweet.description
+            replyCountLabel.text = String("\(tweet.retweetCount)")
+            retweetCountLabel.text = String("\(tweet.retweetCount)")
+            favoritesCountLabel.text = String("\(tweet.favoritesCount)")
         }
     }
     
