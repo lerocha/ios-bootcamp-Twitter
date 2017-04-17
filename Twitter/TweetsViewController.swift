@@ -67,14 +67,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Pass the selected object to the new view controller.
-//        let navigationController = segue.destination as! UINavigationController
-//        
-//        // Pass the selected object to the new view controller.
-//        let tweetDetailsViewController = navigationController.topViewController as! TweetDetailsViewController
-//        
-//        // Set the model for the details view controller
-//        let cel = sender as! TweetCell
-//        tweetDetailsViewController.tweet = cel.tweet
+        // Pass the selected object to the new view controller.
+        let navigationController = segue.destination as! UINavigationController
+        
+        // Pass the selected object to the new view controller.
+        if let tweetDetailsViewController = navigationController.topViewController as? TweetDetailsViewController {
+            // Set the model for the details view controller
+            let cel = sender as! TweetCell
+            tweetDetailsViewController.tweet = cel.tweet
+        }
     }
 }

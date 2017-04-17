@@ -21,41 +21,43 @@ class TweetDetailsViewController: UIViewController {
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var favoritesCountLabel: UILabel!
     @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var replyLabel: UILabel!
     
-    
-    var tweet: Tweet! {
-        didSet {
-//            retweetedLabel.isHidden = !tweet.retweeted
-//            retweetedImageView.isHidden = !tweet.retweeted
-//            if let imageUrl = tweet.user?.profileUrl {
-//                profileImageView.setImageWith(imageUrl)
-//            }
-//            if let name = tweet.user?.name {
-//                nameLabel.text = name
-//            }
-//            if let screenname = tweet.user?.screenname {
-//                screennameLabel.text = "@" + screenname
-//            }
-//            if let timestamp = tweet.timestamp {
-//                let hours = Calendar.current.dateComponents([.hour], from: timestamp, to: Date()).hour ?? 0
-//                if hours > 0 {
-//                    timestampLabel.text = String("\(hours)h")
-//                } else {
-//                    let minutes = Calendar.current.dateComponents([.minute], from: timestamp, to: Date()).minute ?? 0
-//                    timestampLabel.text = String("\(minutes)m")
-//                }
-//            }
-//            messageLabel.text = tweet.text
-//            replyCountLabel.text = String("\(tweet.retweetCount)")
-//            retweetCountLabel.text = String("\(tweet.retweetCount)")
-//            favoritesCountLabel.text = String("\(tweet.favoritesCount)")
-        }
-    }
+    var tweet: Tweet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        messageTextView.text = ""
+        messageTextView.becomeFirstResponder()
+        if let tweet = tweet {
+            retweetedLabel.isHidden = !tweet.retweeted
+            retweetedImageView.isHidden = !tweet.retweeted
+            if let imageUrl = tweet.user?.profileUrl {
+                profileImageView.setImageWith(imageUrl)
+            }
+            if let name = tweet.user?.name {
+                nameLabel.text = name
+            }
+            if let screenname = tweet.user?.screenname {
+                screennameLabel.text = "@" + screenname
+                replyLabel.text = "Replying to @\(screenname)"
+            }
+            if let timestamp = tweet.timestamp {
+                let hours = Calendar.current.dateComponents([.hour], from: timestamp, to: Date()).hour ?? 0
+                if hours > 0 {
+                    timestampLabel.text = String("\(hours)h")
+                } else {
+                    let minutes = Calendar.current.dateComponents([.minute], from: timestamp, to: Date()).minute ?? 0
+                    timestampLabel.text = String("\(minutes)m")
+                }
+            }
+            messageLabel.text = tweet.text
+            replyCountLabel.text = String("\(tweet.retweetCount)")
+            retweetCountLabel.text = String("\(tweet.retweetCount)")
+            favoritesCountLabel.text = String("\(tweet.favoritesCount)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,6 +72,14 @@ class TweetDetailsViewController: UIViewController {
     @IBAction func onReplyButton(_ sender: Any) {
         TwitterClient.sharedInstance.updateStatus(message: messageTextView.text, idToReply: tweet?.id, success: {
             self.messageTextView.text = ""
+            self.dismiss(animated: true, completion: nil)
+        }) { (error: Error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    @IBAction func onRetweet(_ sender: Any) {
+        TwitterClient.sharedInstance.retweet(id: tweet!.id, success: {
             self.dismiss(animated: true, completion: nil)
         }) { (error: Error) in
             print(error.localizedDescription)
